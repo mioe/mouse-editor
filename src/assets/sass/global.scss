@@ -42,4 +42,56 @@ select {
   -webkit-user-select: none;
   user-select: none;
 }
+
+html {
+  background: #eee;
+}
+
+
+.home-page {
+  margin: 25px;
+}
+
+#toolbar {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.btn-default {
+  display: flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 10px 15px;
+  background: red;
+  border-radius: 30px;
+  cursor: pointer;
+  svg {
+    margin-right: 10px;
+  }
+}
+//////////////////////////////////////////////////////////////////////
+.markdown-body {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+  background: #fff;
+}
+
+@media (max-width: 767px) {
+  .markdown-body {
+    padding: 15px;
+  }
+
+  .home-page {
+    margin: 0;
+  }
+}
+
+/* wrap long lines of code */
+.markdown-body pre > code {
+  word-break: break-all !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: break-word !important;
+}
 //////////////////////////////////////////////////////////////////////

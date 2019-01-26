@@ -10,16 +10,19 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
+let editor
 
 // Standard scheme must be registered before the app is ready
 protocol.registerStandardSchemes(['app'], { secure: true })
 function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({ width: 800, height: 600 })
+  editor = new BrowserWindow({ width: 400, height: 400, parent: win, show: true })
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
+    editor.loadURL(process.env.WEBPACK_DEV_SERVER_URL + '/#/editor')
     if (!process.env.IS_TEST) win.webContents.openDevTools()
   } else {
     createProtocol('app')
@@ -33,6 +36,7 @@ function createWindow () {
 
   // hide menu
   win.setMenu(null)
+  editor.setMenu(null)
 }
 
 // Quit when all windows are closed.

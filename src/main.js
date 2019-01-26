@@ -7,6 +7,8 @@ import store from './store'
 import { FontAwesome } from '@/plugins/fa'
 Vue.component('fa', FontAwesome)
 
+import '@/assets/css/github-markdown.css'
+
 // my style
 import '@/assets/sass/global.scss'
 
