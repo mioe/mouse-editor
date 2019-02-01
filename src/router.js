@@ -8,17 +8,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import('@/views/home.vue')
-    },
-    {
-      path: '/editor',
-      name: 'editor',
-      component: () => import('@/views/editor.vue')
+      name: 'main',
+      component: () => import('@/views/main.vue')
     },
     {
       path: '*',
-      component: () => import('@/views/home.vue')
+      component: () => import('@/views/main.vue')
     }
   ]
 })

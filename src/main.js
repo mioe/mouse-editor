@@ -3,13 +3,17 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+// plugins
+import VueDraggableResizable from 'vue-draggable-resizable'
+import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
+Vue.component('vue-draggable-resizable', VueDraggableResizable)
+
 // icons
 import { FontAwesome } from '@/plugins/fa'
 Vue.component('fa', FontAwesome)
 
+// my styles
 import '@/assets/css/github-markdown.css'
-
-// my style
 import '@/assets/sass/global.scss'
 
 Vue.config.productionTip = false

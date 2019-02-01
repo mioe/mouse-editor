@@ -43,31 +43,49 @@ select {
   user-select: none;
 }
 
+.hideMe {
+  display: none;
+}
+//////////////////////////////////////////////////////////////////////
 html {
-  background: #eee;
+  background: #f1f3f4;
 }
 
-
-.home-page {
-  margin: 25px;
-}
-
-#toolbar {
-  max-width: 980px;
-  margin: 0 auto;
+.btn-white-default {
   display: flex;
-}
-
-.btn-default {
-  display: flex;
+  justify-content: center;
   align-items: center;
-  min-height: 30px;
-  padding: 10px 15px;
-  background: red;
-  border-radius: 30px;
+  min-width: 50px;
+  height: 50px;
+  padding: 0 15px;
+  background: #fff;
+  border-radius: 50px;
+  border: 1px solid #eee;
   cursor: pointer;
   svg {
-    margin-right: 10px;
+    margin-right: 15px;
+  }
+}
+
+.tool {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+  user-select: none;
+}
+
+.editor {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: red;
+  padding: 5px;
+  & > textarea {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
   }
 }
 //////////////////////////////////////////////////////////////////////
@@ -81,10 +99,6 @@ html {
 @media (max-width: 767px) {
   .markdown-body {
     padding: 15px;
-  }
-
-  .home-page {
-    margin: 0;
   }
 }
 
