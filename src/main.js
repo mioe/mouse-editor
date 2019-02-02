@@ -6,7 +6,7 @@ import store from './store'
 // plugins
 import VueDraggableResizable from 'vue-draggable-resizable'
 import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
-Vue.component('vue-draggable-resizable', VueDraggableResizable)
+Vue.component('drag', VueDraggableResizable)
 
 // icons
 import { FontAwesome } from '@/plugins/fa'
