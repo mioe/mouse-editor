@@ -14,11 +14,23 @@
     </div>
     <!-- toolbar !end -->
 
-    <drag v-if="flags.editor">
-      <div class="editor"
-        :w="optionsEditor.width"
-        :h="optionsEditor.height"
-      >
+    <drag v-if="flags.editor"
+      :w="optionsEditor.width"
+      :h="optionsEditor.height"
+      :x="optionsEditor.x"
+      :y="optionsEditor.y"
+      :draggable="optionsEditor.pushpin"
+      :resizable="optionsEditor.pushpin"
+      @dragging="onDragEditor" 
+      @resizing="onResizeEditor"
+    >
+      <div class="tool-editor">
+        <div @click="pushpinEditor" class="btn-white-default">
+          <p>📌</p>
+          <p>Закрепить</p>
+        </div>
+      </div>
+      <div class="editor">
         <textarea v-model="body"></textarea>
       </div>  
     </drag>
@@ -37,7 +49,10 @@ export default {
     return {
       optionsEditor: {
         width: 200,
-        height: 200
+        height: 200,
+        x: 0,
+        y: 0,
+        pushpin: true
       },
 
       flags: {
@@ -70,6 +85,22 @@ export default {
         let body = new TextDecoder("utf-8").decode(data)
         this.$store.dispatch('importBody', body)
       });
+    },
+
+    onDragEditor(x,y) {
+      this.optionsEditor.x = x
+      this.optionsEditor.y = y
+    },
+
+    onResizeEditor(x, y, width, height) {
+      this.optionsEditor.x = x
+      this.optionsEditor.y = y
+      this.optionsEditor.width = width
+      this.optionsEditor.height = height
+    },
+
+    pushpinEditor() {
+      this.optionsEditor.pushpin = !this.optionsEditor.pushpin
     }
   },
 }
