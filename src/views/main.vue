@@ -1,15 +1,30 @@
 <template>
   <div class="view-main">
     <!-- toolbar -->
-    <div class="tool">
-      <div @click="selectFile" :class="{'is-active': body.length > 0}" class="btn-white-default">
-        <fa icon="file-import"/>
-        <p>Импорт md</p>
-        <input type="file" ref="hook-import-file" class="hideMe" @change="importFile">
+    <div class="tool dontTouchMe">
+      <div class="tool-left">
+        <div @click="selectFile" :class="{'is-active': body.length > 0}" class="btn-white-default">
+          <fa icon="file-import"/>
+          <p>Импорт md</p>
+          <input type="file" ref="hook-import-file" class="hideMe" @change="importFile">
+        </div>
+        <div @click="flags.editor = !flags.editor" :class="{'is-active': flags.editor}" class="btn-white-default">
+          <fa icon="mug-hot"/>
+          <p>Редактор</p>
+        </div>
       </div>
-      <div @click="flags.editor = !flags.editor" :class="{'is-active': flags.editor}" class="btn-white-default">
-        <fa icon="mug-hot"/>
-        <p>Редактировать файл</p>
+      <div class="logo">
+        🐭
+      </div>
+      <div class="tool-right">
+        <div class="btn-white-default">
+          <fa icon="puzzle-piece"/>
+          <p>Сохранить</p>
+        </div>
+        <div class="btn-white-default">
+          <fa icon="file-export"/>
+          <p>Експорт pdf</p>
+        </div>
       </div>
     </div>
     <!-- toolbar !end -->
@@ -24,13 +39,15 @@
       @dragging="onDragEditor" 
       @resizing="onResizeEditor"
     >
-      <div class="tool-editor">
-        <div @click="pushpinEditor" class="btn-white-default">
-          <p>📌</p>
-          <p>Закрепить</p>
+      <div class="editor" :class="{'is-opacity': optionsEditor.opacity}">
+        <div class="tool-editor">
+          <div @click="pushpinEditor" class="btn-black-mini">
+            <fa icon="thumbtack"/>
+          </div>
+          <div @click="opacityEditor" class="btn-black-mini">
+            <fa :icon="['far', 'eye']"/>
+          </div>
         </div>
-      </div>
-      <div class="editor">
         <textarea v-model="body"></textarea>
       </div>  
     </drag>
@@ -52,7 +69,8 @@ export default {
         height: 200,
         x: 0,
         y: 0,
-        pushpin: true
+        pushpin: true,
+        opacity: false
       },
 
       flags: {
@@ -101,6 +119,10 @@ export default {
 
     pushpinEditor() {
       this.optionsEditor.pushpin = !this.optionsEditor.pushpin
+    },
+
+    opacityEditor() {
+      this.optionsEditor.opacity = !this.optionsEditor.opacity
     }
   },
 }
