@@ -13,7 +13,7 @@
           <p>Редактор</p>
         </div>
       </div>
-      <div class="logo">
+      <div class="logo" :class="{'is-active': flags.editor}">
         🐭
       </div>
       <div class="tool-right">
@@ -45,7 +45,8 @@
             <fa icon="thumbtack"/>
           </div>
           <div @click="opacityEditor" class="btn-black-mini">
-            <fa :icon="['far', 'eye']"/>
+            <fa v-if="!optionsEditor.opacity" :icon="['far', 'eye']"/>
+            <fa v-if="optionsEditor.opacity" :icon="['far', 'eye-slash']"/>
           </div>
         </div>
         <textarea v-model="body"></textarea>
@@ -60,15 +61,17 @@
 <script>
 const marked = require('marked')
 const fs = require('fs')
+// const mdToPdf = require('md-to-pdf')
 
 export default {
   data() {
+    const centerFocus = screen.width / 2 - 150;
     return {
       optionsEditor: {
-        width: 200,
-        height: 200,
-        x: 0,
-        y: 0,
+        width: 300,
+        height: 150,
+        x: centerFocus,
+        y: 60,
         pushpin: true,
         opacity: false
       },
