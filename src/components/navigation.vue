@@ -41,7 +41,6 @@ export default {
   height: 100vh;
   background: #24292e;
   padding: 30px 10px;
-  float: left;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

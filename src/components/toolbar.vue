@@ -95,7 +95,7 @@ import vuescroll from 'vuescroll'
 import 'vuescroll/dist/vuescroll.css'
 export default {
   components: {
-    vuescroll
+    vuescroll,
   },
 
   data() {
@@ -124,7 +124,6 @@ export default {
   background: #fafbfc;
   padding: 10px;
   border-right: 1px solid #e1e4e8;
-  float: left;
   hr {
     margin: 5px 0;
   }
