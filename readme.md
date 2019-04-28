@@ -35,7 +35,7 @@ Via `yarn`:
 ```bash
 # compiles and hot-reloads for development
 yarn serve
-yarn wa # => yarn electron:serve
+yarn watch # => yarn electron:serve
 
 # compiles and minifies for production
 yarn build
@@ -48,7 +48,7 @@ Via `npm`:
 ```bash
 # compiles and hot-reloads for development
 npm run serve
-npm run wa # => npm run electron:serve
+npm run watch # => npm run electron:serve
 
 # compiles and minifies for production
 npm run build

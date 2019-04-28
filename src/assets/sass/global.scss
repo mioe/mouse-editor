@@ -1,45 +1,8 @@
-//////////////////////////////////////////////////////////////////////
-@import "_variables.scss";
-//////////////////////////////////////////////////////////////////////
-// default by mioe
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
-a {
-  // reset
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-ul {
-  // reset
-  padding: 0;
-  margin: 0;
-  li {
-    padding: 0;
-    margin: 0;
-  }
-}
-
-input,
-textarea,
-button,
-select {
-  border: none;
-  background: #eee;
-}
-
-.dontTouchMe {
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
-//////////////////////////////////////////////////////////////////////
