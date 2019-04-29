@@ -20,7 +20,7 @@
 #### Install
 ```bash
 # get repository
-git clone https://github.com/mioe/mouse-pdf.git
+git clone https://github.com/mioe/mouse-editor.git
 
 # switch to develop branch
 git checkout develop
@@ -42,7 +42,7 @@ yarn build
 yarn electron:build
 
 # lints and fixes files
-yarn lint 
+yarn lint
 ```
 Via `npm`:
 ```bash

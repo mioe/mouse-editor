@@ -1,5 +1,5 @@
 <template>
-  <div class="toolbar">
+  <div class="toolbar dontTouchMe">
     <vuescroll :ops="ops">
       <div class="tool-item">
         <fa :icon="['fa', 'bold']"/>
