@@ -7,5 +7,9 @@ export const mutations = {
 
   setHtml(state, payload) {
     state.html = marked(payload)
-  }
+  },
+
+  setFilePath(state, payload) {
+    state.filePath = payload
+  },
 }

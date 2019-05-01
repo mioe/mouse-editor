@@ -13,7 +13,7 @@
       </div>
       <div
         class="preview"
-        :class="{'github-markdown': true}"
+        :class="markdownCss"
       >
         <div class="markdown-body" v-html="html"></div>
       </div>
@@ -37,7 +37,8 @@ export default {
   computed: {
     ...mapGetters({
       getMarkdown: 'getMarkdown',
-      html: 'getHtml'
+      html: 'getHtml',
+      markdownCss: 'getCurrentStyle',
     }),
 
     code: {
@@ -48,7 +49,8 @@ export default {
 
   methods: {
     ...mapActions({
-      setCode: 'setCode'
+      setCode: 'setCode',
+      setFilePath: 'setFilePath',
     }),
 
     selectFile() {
@@ -57,11 +59,12 @@ export default {
 
     importFile(e) {
       let file = e.target.files[0]
+      this.setFilePath(file.path)
       fs.readFile(file.path, (err, data) => {
         if (err) throw err
         let body = new TextDecoder("utf-8").decode(data)
         this.setCode(body)
-      });
+      })
     },
   }
 }
