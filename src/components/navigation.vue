@@ -14,11 +14,11 @@
         <fa :icon="['fa', 'file-code']"/>
         <p>Import md</p>
       </div>
-      <div class="nav-item">
+      <div @click="$emit('save')" class="nav-item">
         <fa :icon="['fa', 'save']"/>
         <p>Save md</p>
       </div>
-      <div class="nav-item">
+      <div @click="$emit('export')" class="nav-item">
         <fa :icon="['fa', 'file-powerpoint']"/>
         <p>Export pdf</p>
       </div>

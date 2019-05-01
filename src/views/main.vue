@@ -2,6 +2,8 @@
   <div class="view-main">
     <navigation
       @import="selectFile"
+      @save="saveFile"
+      @export="exportFile"
     />
     <toolbar/>
     <div class="editor">
@@ -23,7 +25,9 @@
 
 
 <script>
-const fs = require('fs')
+const fs = require('fs'),
+      markdownpdf = require('markdown-pdf')
+
 import navigation from '../components/navigation.vue'
 import toolbar from '../components/toolbar.vue'
 import { mapGetters, mapActions } from 'vuex'
@@ -39,6 +43,7 @@ export default {
       getMarkdown: 'getMarkdown',
       html: 'getHtml',
       markdownCss: 'getCurrentStyle',
+      filePath: 'getFilePath'
     }),
 
     code: {
@@ -65,6 +70,22 @@ export default {
         let body = new TextDecoder("utf-8").decode(data)
         this.setCode(body)
       })
+    },
+
+    saveFile() {
+      fs.writeFile(this.filePath, this.code, (err) => {
+        if (err) {
+          return alert(err)
+        }
+        alert("The file was saved!")
+      })
+    },
+
+    exportFile() {
+      const filePdf = this.filePath.substring(0, this.filePath.length - 2) + 'pdf'
+      fs.createReadStream(this.filePath)
+        .pipe(markdownpdf())
+        .pipe(fs.createWriteStream(filePdf))
     },
   }
 }

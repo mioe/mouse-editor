@@ -5,5 +5,9 @@ export const getters = {
 
   getHtml(state) {
     return state.html
-  }
+  },
+
+  getFilePath(state) {
+    return state.filePath
+  },
 }
