@@ -1,18 +1,39 @@
 <template>
   <div class="view-main">
-    <div class="code">
-      <textarea
-        v-model="code"
-      ></textarea>
+    <navigation
+      @import="selectFile"
+    />
+    <toolbar/>
+    <div class="editor">
+      <input type="file" ref="hook-import-file" class="hideMe" @change="importFile">
+      <div class="code">
+        <textarea
+          v-model="code"
+        ></textarea>
+      </div>
+      <div
+        class="preview"
+        :class="{'github-markdown': true}"
+      >
+        <div class="markdown-body" v-html="html"></div>
+      </div>
     </div>
-    <div class="preview" v-html="html"></div>
   </div>
 </template>
 
 
 <script>
+const fs = require('fs')
+import navigation from '../components/navigation.vue'
+import toolbar from '../components/toolbar.vue'
 import { mapGetters, mapActions } from 'vuex'
+
 export default {
+  components: {
+    navigation,
+    toolbar,
+  },
+
   computed: {
     ...mapGetters({
       getMarkdown: 'getMarkdown',
@@ -28,7 +49,20 @@ export default {
   methods: {
     ...mapActions({
       setCode: 'setCode'
-    })
+    }),
+
+    selectFile() {
+      this.$refs['hook-import-file'].click()
+    },
+
+    importFile(e) {
+      let file = e.target.files[0]
+      fs.readFile(file.path, (err, data) => {
+        if (err) throw err
+        let body = new TextDecoder("utf-8").decode(data)
+        this.setCode(body)
+      });
+    },
   }
 }
 </script>
@@ -36,6 +70,13 @@ export default {
 
 <style lang="scss" scoped>
 .view-main {
+  position: relative;
+  width: 100%;
+  display: flex;
+  overflow-y: hidden;
+}
+
+.editor {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -61,7 +102,12 @@ export default {
 .preview {
   position: relative;
   width: 100%;
-  height: 100%;
-  padding: 10px;
+  overflow: auto;
+  padding: 10px 30px;
+  display: block;
+}
+
+.hideMe {
+  display: none;
 }
 </style>

@@ -26,3 +26,7 @@
   padding-top: 30px;
   border-top: 2px solid #3f4448;
 }
+
+.github-markdown {
+  @import './github-markdown.scss';
+}

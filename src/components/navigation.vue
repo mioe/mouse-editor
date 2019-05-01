@@ -10,7 +10,7 @@
       >
         <logo />
       </div>
-      <div class="nav-item">
+      <div @click="$emit('import')" class="nav-item">
         <fa :icon="['fa', 'file-code']"/>
         <p>Import md</p>
       </div>
