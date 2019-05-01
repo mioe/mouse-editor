@@ -25,14 +25,14 @@
     </div>
 
     <div class="nav-bottom">
-      <div class="nav-item">
+      <router-link to="/about" class="nav-item">
         <fa :icon="['far', 'question-circle']"/>
         <p>About</p>
-      </div>
-      <div class="nav-item">
+      </router-link>
+      <router-link to="/settings" class="nav-item">
         <fa :icon="['fa', 'cog']"/>
         <p>Setting</p>
-      </div>
+      </router-link>
       <div
         @click="flags.navigation = !flags.navigation"
         class="nav-item"
@@ -59,7 +59,7 @@ export default {
         navigation: false
       }
     }
-  }
+  },
 }
 </script>
 
@@ -102,7 +102,8 @@ export default {
   display: flex;
   align-items: center;
   padding: 8px 12px;
-  &.active {
+  text-decoration: none;
+  &.router-link-exact-active {
     background: #3f4448;
   }
   &:hover {
