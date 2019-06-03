@@ -1,6 +1,8 @@
 ## 🐭 editor
 > markdown to pdf 👀 ✏️ 🎉 (look, edit, convert)
 
+![preview](https://github.com/mioe/mouse-editor/blob/master/preview-github.png)
+
 
 ### Table of Contents
 - [Requirements](#requirements)
