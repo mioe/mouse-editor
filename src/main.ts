@@ -3,9 +3,13 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
-Vue.config.productionTip = false;
+// icons
+import { FontAwesome } from './helpers/fa';
+Vue.component('fa', FontAwesome);
 
 import './assets/sass/global.sass';
+
+Vue.config.productionTip = false;
 
 new Vue({
   router,

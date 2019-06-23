@@ -1,16 +1,17 @@
 <template>
   <div class="view">
-    <logo/>
+    <navigation/>
   </div>
 </template>
 
+
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import logo from '../components/logo.vue';
+import navigation from '../components/navigation.vue';
 
 @Component({
   components: {
-    logo,
+    navigation,
   },
 })
 export default class Main extends Vue {}

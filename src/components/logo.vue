@@ -5,5 +5,5 @@
 
 <style lang="sass" scoped>
 path
-  fill: #000
+  fill: #fff
 </style>
