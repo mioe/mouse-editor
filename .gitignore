@@ -18,12 +18,11 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-*.sw*
+*.sw?
 
-# Electron-builder output
+#Electron-builder output
 /dist_electron
 
 # locks
-yarn.lock
-package.lock
 package-lock.json
+yarn.lock
