@@ -4,33 +4,40 @@
     :class="{'open': flags.navigation}"
   >
     <div class="nav-top">
-      <div
-        class="logo"
-        :class="{'open': flags.navigation}"
-      >
-        <logo />
+      <div class="logo" :class="{'open': flags.navigation}">
+        <logo/>
       </div>
       <div @click="$emit('import')" class="nav-item">
-        <fa :icon="['fa', 'file-code']"/>
+        <div class="icon">
+          <fa :icon="['fa', 'file-code']"/>
+        </div>
         <p>Import md</p>
       </div>
       <div @click="$emit('save')" class="nav-item">
-        <fa :icon="['fa', 'save']"/>
+        <div class="icon">
+          <fa :icon="['fa', 'save']"/>
+        </div>
         <p>Save md</p>
       </div>
       <div @click="$emit('export')" class="nav-item">
-        <fa :icon="['fa', 'file-powerpoint']"/>
+        <div class="icon">
+          <fa :icon="['fa', 'file-powerpoint']"/>
+        </div>
         <p>Export pdf</p>
       </div>
     </div>
 
     <div class="nav-bottom">
       <router-link to="/about" class="nav-item">
-        <fa :icon="['far', 'question-circle']"/>
+        <div class="icon">
+          <fa :icon="['far', 'question-circle']"/>
+        </div>
         <p>About</p>
       </router-link>
       <router-link to="/settings" class="nav-item">
-        <fa :icon="['fa', 'cog']"/>
+        <div class="icon">
+          <fa :icon="['fa', 'cog']"/>
+        </div>
         <p>Setting</p>
       </router-link>
       <div
@@ -38,7 +45,9 @@
         class="nav-item"
         :class="{'open': flags.navigation}"
       >
-        <fa :icon="['fa', 'chevron-right']"/>
+        <div class="icon">
+          <fa :icon="['fa', 'chevron-right']"/>
+        </div>
         <p>Minimize</p>
       </div>
     </div>

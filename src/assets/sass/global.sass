@@ -3,8 +3,6 @@
   padding: 0
   box-sizing: border-box
   font-family: 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
 
 .dontTouchMe
   user-select: none
@@ -14,3 +12,43 @@
   width: 100%
   display: flex
   overflow-y: hidden
+
+.navigation
+  position: relative
+  width: 64px
+  height: 100vh
+  background: #24292e
+  padding: 30px 10px
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  transition: .3s
+  &.open
+    width: 240px
+  .logo
+    position: relative
+    width: 100%
+    margin-bottom: 30px
+  .nav-item
+    width: 100%
+    height: 40px
+    display: grid
+    grid-template-columns: 45px 80px
+    cursor: pointer
+    border-radius: 3px
+    padding: 8px 12px
+    text-decoration: none
+    &:hover
+      background: #303437
+    .icon
+      display: flex
+      align-items: center
+    svg
+      height: 20px
+      width: 20px
+      path
+        fill: #fff
+    p
+      min-width: 80px
+      line-height: calc(40px - 16px)
+      color: #fff
