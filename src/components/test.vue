@@ -1,5 +1,6 @@
 <template lang="pug">
-router-view
+.test
+  p test
 </template>
 
 
@@ -7,5 +8,5 @@ router-view
 import { Vue, Component } from 'vue-property-decorator'
 
 @Component
-export default class App extends Vue {}
+export default class Test extends Vue {}
 </script>
