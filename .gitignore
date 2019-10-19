@@ -24,3 +24,6 @@ yarn-error.log*
 # locks
 yarn.lock
 package-lock.json
+
+# electron-builder output
+/dist_electron

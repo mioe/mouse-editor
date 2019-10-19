@@ -9,6 +9,7 @@
     ]
   },
   "rules": {
+    "arrow-parens": false,
     "semicolon": [true, "never"],
     "indent": [true, "spaces", 2],
     "interface-name": false,
