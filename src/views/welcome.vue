@@ -1,5 +1,5 @@
 <template lang="pug">
-.test
+.view-welcome
   p test
 </template>
 

@@ -1,19 +1,23 @@
 <template lang="pug">
 .toolbar
-  .item.logo
-    logo/
-  .item
-    p edit
+  vuescroll
+    .item.logo
+      logo/
+    .item(v-for="i in 20" :key="i")
+      p {{ i }}
 </template>
 
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import vuescroll from 'vuescroll'
+import 'vuescroll/dist/vuescroll.css'
 import Logo from '@/components/logo.vue'
 
 @Component({
   components: {
     Logo,
+    vuescroll,
   },
 })
 export default class Toolbar extends Vue {}
@@ -24,20 +28,20 @@ export default class Toolbar extends Vue {}
 .toolbar
   position: relative
   width: 100%
-  height: 100%
+  height: 100vh
   background: #24292e
-  border-right: 2px solid #30373E
 
 .item
-  position: relative
   width: 100%
   height: 50px
   cursor: pointer
+  background: #24292e
   &:hover
     background: #282D33
 
 .logo
   position: sticky
+  top: 0
   border-bottom: 2px solid #30373E
   svg
     position: absolute

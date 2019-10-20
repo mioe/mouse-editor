@@ -2,13 +2,13 @@
   "name": "mouse-editor",
   "version": "2.0.0",
   "author": {
-    "name" : "misha gezha",
-    "email" : "mioe.boss@gmail.com",
-    "url" : "https://mioe.github.io/"
+    "name": "misha gezha",
+    "email": "mioe.boss@gmail.com",
+    "url": "https://mioe.github.io/"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/mioe/mouse-editor.git"
+    "type": "git",
+    "url": "https://github.com/mioe/mouse-editor.git"
   },
   "private": true,
   "scripts": {
@@ -25,6 +25,7 @@
     "vue-class-component": "^7.0.2",
     "vue-property-decorator": "^8.1.0",
     "vue-router": "^3.0.6",
+    "vuescroll": "^4.14.4",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
