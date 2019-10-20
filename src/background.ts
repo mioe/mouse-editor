@@ -39,6 +39,9 @@ function createWindow() {
   win.on('closed', () => {
     win = null
   })
+
+  // hide menu
+  win.setMenuBarVisibility(false)
 }
 
 // Quit when all windows are closed.
