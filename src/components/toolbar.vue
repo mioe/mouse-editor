@@ -1,5 +1,5 @@
 <template lang="pug">
-.toolbar(v-click-outside="closeSubMenu")
+.toolbar.dontTouchMe(v-click-outside="closeSubMenu")
   .tools
     vuescroll(:ops="ops")
       .item.logo(@click="toggleSubMenu")
@@ -51,11 +51,15 @@ export default class Toolbar extends Vue {
 
   private itemsSubMenu: any = [
     [
-      { name:'New File', },
-      { name:'Open File..', },
-      { name:'Save', },
-      { name:'Save As..', },
-      { name:'Export File to PDF', },
+      { name: 'New File' },
+      { name: 'Open File..' },
+      { name: 'Save' },
+      { name: 'Save As..' },
+      { name: 'Export File to PDF' },
+    ],
+    [
+      { name: 'About Mouse Editor' },
+      { name: 'Exit' },
     ],
   ]
 
