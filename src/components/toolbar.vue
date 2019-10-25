@@ -1,14 +1,17 @@
 <template lang="pug">
-.toolbar(v-click-outside="toggleSubMenu")
-  vuescroll(:ops="ops")
-    .item.logo(@click="flags.subMenuOpened = true")
-      logo/
-    .item(v-for="(i, key) in itemsToolbar" :key="key")
-      fa(:icon="i.icon")/
+.toolbar(v-click-outside="closeSubMenu")
+  .tools
+    vuescroll(:ops="ops")
+      .item.logo(@click="toggleSubMenu")
+        logo/
+      .group(v-for="(g, key) in itemsToolbar" :key="key")
+        .item(v-for="(i, k) in g" :key="k")
+          fa(:icon="i.icon")/
   .sub-menu(:class="{'open': flags.subMenuOpened}")
     vuescroll(:ops="ops")
-      .item(v-for="i in 20" :key="i")
-        fa(:icon="['far', 'clock']")/
+      .group(v-for="(g, key) in itemsSubMenu" :key="key")
+        .item(v-for="(i, k) in g" :key="k").
+          {{ i.name }}
 </template>
 
 
@@ -41,7 +44,19 @@ export default class Toolbar extends Vue {
   }
 
   private itemsToolbar: any = [
-    { icon: ['far', 'clock'], name: 'clock' },
+    [
+      { icon: ['far', 'clock'], name: 'clock' },
+    ],
+  ]
+
+  private itemsSubMenu: any = [
+    [
+      { name:'New File', },
+      { name:'Open File..', },
+      { name:'Save', },
+      { name:'Save As..', },
+      { name:'Export File to PDF', },
+    ],
   ]
 
   private flags: any = {
@@ -51,6 +66,10 @@ export default class Toolbar extends Vue {
   private toggleSubMenu() {
     this.flags.subMenuOpened = !this.flags.subMenuOpened
   }
+
+  private closeSubMenu() {
+    this.flags.subMenuOpened = false
+  }
 }
 </script>
 
@@ -58,18 +77,17 @@ export default class Toolbar extends Vue {
 <style scoped lang="sass">
 .toolbar
   position: relative
-  width: 100%
-  height: 100vh
-  background: #24292e
-  & > div:first-of-type
-    z-index: 2
 
 .item
   width: 100%
   height: 50px
   cursor: pointer
+  color: #fff
   &:hover
     background: #0B55B8
+
+.group
+  border-bottom: 2px solid #30373E
 
 .logo
   position: sticky
@@ -83,6 +101,17 @@ export default class Toolbar extends Vue {
     left: 50%
     transform: translate(-50%, -50%)
 
+.tools
+  position: relative
+  width: 100%
+  height: 100vh
+  background: #24292e
+  z-index: 2
+  .item
+    display: flex
+    justify-content: center
+    align-items: center
+
 .sub-menu
   position: fixed
   top: 0
@@ -93,4 +122,10 @@ export default class Toolbar extends Vue {
   z-index: 1
   &.open
     left: 52px
+    .item
+      display: flex
+      justify-content: flex-start
+      align-items: center
+      padding:
+        left: 15px
 </style>
