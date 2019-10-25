@@ -21,6 +21,7 @@ import {
   faBold,
   faStrikethrough,
   faItalic,
+  faGrinHearts,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faArrowLeft,
@@ -42,6 +43,7 @@ library.add(
   faBold,
   faStrikethrough,
   faItalic,
+  faGrinHearts,
 )
 
 // fa(:icon="['far', 'clock']")/

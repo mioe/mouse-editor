@@ -45,7 +45,21 @@ export default class Toolbar extends Vue {
 
   private itemsToolbar: any = [
     [
-      { icon: ['far', 'clock'], name: 'clock' },
+      { icon: ['fa', 'grin-hearts'], name: 'grin-hearts' },
+      { icon: ['fa', 'anchor'], name: 'strikethrough' },
+      { icon: ['far', 'image'], name: 'image' },
+      { icon: ['fa', 'code'], name: 'image' },
+    ],
+    [
+      { icon: ['fa', 'bold'], name: 'bold' },
+      { icon: ['fa', 'strikethrough'], name: 'strikethrough' },
+      { icon: ['fa', 'italic'], name: 'clock' },
+      { icon: ['fa', 'quote-left'], name: 'quote-left' },
+    ],
+    [
+      { icon: ['fa', 'list-ul'], name: 'bold' },
+      { icon: ['fa', 'list-ol'], name: 'strikethrough' },
+      { icon: ['fa', 'minus'], name: 'clock' },
     ],
   ]
 
@@ -119,7 +133,7 @@ export default class Toolbar extends Vue {
 .sub-menu
   position: fixed
   top: 0
-  left: -100%
+  left: -300px
   width: 300px
   height: 100vh
   background: rgba(36, 41, 46, .95)
