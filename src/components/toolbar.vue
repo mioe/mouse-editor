@@ -72,6 +72,11 @@ export default class Toolbar extends Vue {
       { name: 'Export File to PDF' },
     ],
     [
+      { name: 'Settings' },
+      { name: 'Documentation Page' },
+      { name: 'Welcome Page' },
+    ],
+    [
       { name: 'About Mouse Editor' },
       { name: 'Exit' },
     ],

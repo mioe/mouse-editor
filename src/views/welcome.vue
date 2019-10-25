@@ -1,6 +1,6 @@
 <template lang="pug">
 .view-welcome
-  p test
+  h1 Welcome!
 </template>
 
 
@@ -14,5 +14,9 @@ export default class Welcome extends Vue {}
 
 <style scoped lang="sass">
 .view-welcome
-  background: #eee
+  background: #24292e
+  display: flex
+  justify-content: center
+  align-items: center
+  color: #fff
 </style>
