@@ -17,11 +17,13 @@ protocol.registerSchemesAsPrivileged([{scheme: 'app', privileges: { secure: true
 function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 600,
+    height: 400,
     webPreferences: {
       nodeIntegration: true,
     },
+    // tslint:disable-next-line
+    icon: __static + '/ico.png',
   })
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
